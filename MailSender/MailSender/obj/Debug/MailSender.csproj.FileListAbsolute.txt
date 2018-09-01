@@ -1,0 +1,15 @@
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\MailSender.exe.config
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\MailSender.exe
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\MailSender.pdb
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csprojAssemblyReference.cache
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\App.g.cs
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender_MarkupCompile.cache
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender_MarkupCompile.lref
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.g.resources
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.Properties.Resources.resources
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csproj.GenerateResource.cache
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csproj.CoreCompileInputs.cache
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.exe
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.pdb
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\MainWindow.g.cs
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\MainWindow.baml

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MailSender.ViewModel;
 
 namespace MailSender
 {
@@ -23,6 +24,8 @@ namespace MailSender
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowVM vm = new MainWindowVM();
+            DataContext = vm;
         }
     }
 }
