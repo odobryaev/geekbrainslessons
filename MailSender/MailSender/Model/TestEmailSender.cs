@@ -28,10 +28,7 @@ namespace MailSender.Model
             }
             catch (SmtpException error)
             {
-                //Console.WriteLine(error.Message);
                 MessageBox.Show(error.Message, "При отправке сообщения возникла ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-               // var dlg = new MessageSendCompletedDlg(error.Message);
-               // dlg.ShowDialog();
             }
         }
     }

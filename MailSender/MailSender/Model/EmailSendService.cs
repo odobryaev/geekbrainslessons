@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using System.Windows;
+using MailSender.View;
+using MailSender.ViewModel;
 
 namespace MailSender.Model
 {
-    class EmailSendService
+    public class EmailSendService
     {
         private static string _server = "smtp.gmail.com";
         private static int _port = 587;
 
-        public static string SendTo { get; set; }
-        public static string SendFrom { get; set; }
+        public string SendTo { get; set; }
+        public string SendFrom { get; set; }
 
-        public static string MessageSubject { get; set; }
-        public static string MessageBody { get; set; }
+        public string MessageSubject { get; set; }
+        public string MessageBody { get; set; }
 
         public MailMessage message;
 
@@ -27,12 +29,7 @@ namespace MailSender.Model
 
         }
 
-        public static void SendExecute()
-        {
-
-        }
-
-        public static void EmailSendService1(string user, string pass)
+        public void SendExecute(string user, string pass)
         {
             try
             {
@@ -40,14 +37,28 @@ namespace MailSender.Model
                 using (var client = new SmtpClient(_server, _port) { EnableSsl = true, Credentials = new NetworkCredential(user, pass) })
                 {
                     client.Send(message);
+                    var dlg = new MessageSendResultDlg();
+                    var vm = new MessageSendResultDlgVM();
+                    dlg.DataContext = vm;
+                    vm.ErrorText = "";
+                    vm.ResultText = "Message sent!";
+                    vm.ResultTextColor = "Green";
+                    vm.CloseHandler += (sender, args) => dlg.Close();
+                    dlg.ShowDialog();
                 }
+                
             }
-            catch (SmtpException error)
+            catch (Exception error)
             {
-                //Console.WriteLine(error.Message);
-                MessageBox.Show(error.Message, "При отправке сообщения возникла ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                // var dlg = new MessageSendCompletedDlg(error.Message);
-                // dlg.ShowDialog();
+                var dlg = new MessageSendResultDlg();
+                var vm = new MessageSendResultDlgVM(); 
+                dlg.DataContext = vm;
+                vm.ErrorText = error.Message;
+                vm.ResultText = "Error!";
+                vm.ResultTextColor = "Red";
+                vm.CloseHandler += (sender, args) => dlg.Close();
+                dlg.ShowDialog();
+
             }
         }
     }

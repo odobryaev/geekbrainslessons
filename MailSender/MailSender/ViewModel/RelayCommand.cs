@@ -3,7 +3,6 @@ using System.Windows.Input;
 
 namespace MailSender.ViewModel
 {
-    // Скопировал из интернета для реализации команд в соответствии с MVVM
     public class RelayCommand : ICommand
     {
         private Action<object> _action;
@@ -12,7 +11,6 @@ namespace MailSender.ViewModel
         {
             _action = action;
         }
-
 
         public bool CanExecute(object parameter)
         {
@@ -23,9 +21,11 @@ namespace MailSender.ViewModel
         {
             if (parameter != null)
             {
-               // var passwordBox = parameter as PasswordBox;
-              //  var password = passwordBox.Password;
                 _action(parameter);
+            }
+            else
+            {
+                _action("");
             }
         }
         public event EventHandler CanExecuteChanged;

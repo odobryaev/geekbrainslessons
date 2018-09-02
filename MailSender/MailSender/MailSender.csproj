@@ -57,7 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MessageSendResultDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WpfMailSender.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -67,10 +75,14 @@
     </Compile>
     <Compile Include="Model\EmailSendService.cs" />
     <Compile Include="Model\TestEmailSender.cs" />
-    <Compile Include="ViewModel\MainWindowVM.cs" />
+    <Compile Include="ViewModel\MessageSendResultDlgVM.cs" />
+    <Compile Include="ViewModel\WpfMailSenderVM.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\MessageSendResultDlg.xaml.cs">
+      <DependentUpon>MessageSendResultDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WpfMailSender.xaml.cs">
+      <DependentUpon>WpfMailSender.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

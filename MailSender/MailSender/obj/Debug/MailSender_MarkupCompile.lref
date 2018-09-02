@@ -1,4 +1,5 @@
 ﻿
-
-FE:\_gitHub\geekbrainslessons\MailSender\MailSender\View\MainWindow.xaml;;
+FE:\_gitHub\geekbrainslessons\MailSender\MailSender\App.xaml;;
+FE:\_gitHub\geekbrainslessons\MailSender\MailSender\View\MessageSendResultDlg.xaml;;
+FE:\_gitHub\geekbrainslessons\MailSender\MailSender\View\WpfMailSender.xaml;;
 
