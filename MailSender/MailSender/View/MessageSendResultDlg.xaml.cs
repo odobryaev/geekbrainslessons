@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MailSender.ViewModel;
 
-namespace MailSender
+namespace MailSender.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MessageSendResultDlg.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MessageSendResultDlg : Window
     {
-        public MainWindow()
+        public MessageSendResultDlg()
         {
             InitializeComponent();
         }
