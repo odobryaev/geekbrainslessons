@@ -1,7 +1,6 @@
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\MailSender.exe.config
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\MailSender.exe
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\MailSender.pdb
-E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csprojAssemblyReference.cache
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\App.g.cs
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender_MarkupCompile.cache
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender_MarkupCompile.lref
@@ -12,8 +11,10 @@ E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csproj.C
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.exe
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.pdb
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Theme.baml
-E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\App.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\MessageSendResultDlg.g.cs
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\WpfMailSender.g.cs
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\MessageSendResultDlg.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\WpfMailSender.baml
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\Encrypter.dll
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\Encrypter.pdb
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csproj.CopyComplete

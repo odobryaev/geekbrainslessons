@@ -5,47 +5,150 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="MailSender" Height="320" Width="300">
-    <Window.Resources>    </Window.Resources>
-    <Grid>
-        <StackPanel Orientation="Vertical" Margin="10">
-            <Label Content="Credentials:" HorizontalAlignment="Left" FontWeight="Bold"/>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical" Width="70"  VerticalAlignment="Top">
-                    <Label Content="User name" HorizontalAlignment="Left" Margin="0,2,0,0" />
-                    <Label Content="Password" HorizontalAlignment="Left" Margin="0,10,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBox x:Name="UserNameTextBox" Margin="3" HorizontalAlignment="Left"  Text="{Binding Username}" Width="140" VerticalAlignment="Center"/>
-                    <PasswordBox
+        Title="MailSender" Height="450" Width="900">
+    <Window.Resources>
+
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+        </Menu>
+        <TabControl Name="MainTabControl" DockPanel.Dock="Top">
+            <TabItem Header="Рассылка" >
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top">
+                        <ToolBar>
+                            <Label Content="Отправитель:" VerticalAlignment="Center"/>
+                            <ComboBox Width="200" SelectedIndex="0" ItemsSource="{Binding Sender}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=Key}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button ToolTip="Добавить отправителя">
+                                <Image Source="mailsender/src/add.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Редактировать отправителя">
+                                <Image Source="mailsender/src/edit.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="mailsender/src/remove.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1">
+                            <Label>Планировщик:</Label>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="mailsender/src/clock.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar>
+                            <Label>Сервер:</Label>
+                            <ComboBox Width="150"  SelectedIndex="0"  ItemsSource="{Binding Server}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=Key}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button ToolTip="Добавить отправителя">
+                                <Image Source="mailsender/src/add.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Редактировать отправителя">
+                                <Image Source="mailsender/src/edit.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="mailsender/src/remove.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1">
+                            <Label>Список адресатов:</Label>
+                            <Button ToolTip="Добавить отправителя">
+                                <Image Source="mailsender/src/add.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Редактировать отправителя">
+                                <Image Source="mailsender/src/edit.png" Height="15" Margin="2"/>
+                            </Button>
+                            <Button ToolTip="Удалить отправителя">
+                                <Image Source="mailsender/src/remove.png" Height="15" Margin="2"/>
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <DataGrid DockPanel.Dock="Top" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding EmailList}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
+                            <DataGridTextColumn Header="Почта" Binding="{Binding Value}" Width="Auto"/>
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Name}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Планировщик">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="3">
+                        <Calendar SelectionMode="MultipleRange"/>
+                        <Button Margin="0,3">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="15" Source="src/clock.png" Margin="0,0,4,0"/>
+                                <TextBlock Text="Запланировать"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Content="Отправить сейчас"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Редактор сообщений">
+                <RichTextBox/>
+            </TabItem>
+            <TabItem Header="Old">
+                <Grid>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <Label Content="Credentials:" HorizontalAlignment="Left" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Width="70"  VerticalAlignment="Top">
+                                <Label Content="User name" HorizontalAlignment="Left" Margin="0,2,0,0" />
+                                <Label Content="Password" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBox x:Name="UserNameTextBox" Margin="3" HorizontalAlignment="Left"  Text="{Binding Username}" Width="140" VerticalAlignment="Center"/>
+                                <PasswordBox
                         VerticalAlignment="Center"
                         x:Name="PasswordEdit" 
                         Margin="3"
                         HorizontalAlignment="Left" 
                         Width="140">
-                    </PasswordBox>
-                </StackPanel>
-                <Button Content="Test" HorizontalAlignment="Left" Margin="2,0,0,0" Width="45" Height="30" 
+                                </PasswordBox>
+                            </StackPanel>
+                            <Button Content="Test" HorizontalAlignment="Left" Margin="2,0,0,0" Width="45" Height="30" 
                     Command="{Binding Path=TestButtonClick}"
                     CommandParameter="{Binding ElementName=PasswordEdit}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <StackPanel Orientation="Vertical" Width="60" Height="Auto">
-                    <Label Content="To:" HorizontalAlignment="Left"  FontWeight="Bold" Margin="0,3,0,0"/>
-                    <Label Content="Subject:" HorizontalAlignment="Left" FontWeight="Bold" Margin="0,12,0,0"/>
-                    <Label Content="Body:" HorizontalAlignment="Left"  FontWeight="Bold" Margin="0,12,0,0"/>
-                    
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <StackPanel Orientation="Vertical" Width="60" Height="Auto">
+                                <Label Content="To:" HorizontalAlignment="Left"  FontWeight="Bold" Margin="0,3,0,0"/>
+                                <Label Content="Subject:" HorizontalAlignment="Left" FontWeight="Bold" Margin="0,12,0,0"/>
+                                <Label Content="Body:" HorizontalAlignment="Left"  FontWeight="Bold" Margin="0,12,0,0"/>
 
-                </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <TextBox x:Name="SendToTextBox" Margin="0,5,0,0" HorizontalAlignment="Left"  Text="{Binding SendTo}" Width="200" VerticalAlignment="Center"/>
-                    <TextBox x:Name="SubjectTextBox" Margin="0,5,0,0" HorizontalAlignment="Left"  Text="{Binding Subject}" Width="200" VerticalAlignment="Center"/>
-                    <TextBox x:Name="BodyTextBox" Margin="0,8,0,0" HorizontalAlignment="Left"  Text="{Binding Body}" Width="200" Height ="80" VerticalAlignment="Center"/>
-                    <Button Content="Send" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Bottom" Width="200" Height="20" 
+
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBox x:Name="SendToTextBox" Margin="0,5,0,0" HorizontalAlignment="Left"  Text="{Binding SendTo}" Width="200" VerticalAlignment="Center"/>
+                                <TextBox x:Name="SubjectTextBox" Margin="0,5,0,0" HorizontalAlignment="Left"  Text="{Binding Subject}" Width="200" VerticalAlignment="Center"/>
+                                <TextBox x:Name="BodyTextBox" Margin="0,8,0,0" HorizontalAlignment="Left"  Text="{Binding Body}" Width="200" Height ="80" VerticalAlignment="Center"/>
+                                <Button Content="Send" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Bottom" Width="200" Height="20" 
                         Command="{Binding Path=SendButtonClick}"
                         CommandParameter="{Binding ElementName=PasswordEdit}"/>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
-    </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

@@ -12,7 +12,32 @@ namespace MailSender.ViewModel
 {
     public class WpfMailSenderVM
     {
+        public Dictionary<string,string> Sender
+        {
+            get
+            {
+                return Senders.SenderDictionary;
+            }
+        }
+
+        public Dictionary<string,int> Server
+        {
+            get
+            {
+                return Senders.ServerDictionary;
+            }
+        }
+
+        public IQueryable EmailList
+        {
+            get
+            {
+                return Database.Emails;
+            }
+        }
+
         public string Username { get; set; }
+
         public string SendTo { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
