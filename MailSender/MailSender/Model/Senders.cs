@@ -15,7 +15,7 @@ namespace MailSender.Model
 
         public static Dictionary<string, int> ServerDictionary { get; } = new Dictionary<string, int>
         {
-            {"smpt.google.com", 587 }
+            {"smtp.gmail.com", 587 }
         };
     }
 }

@@ -92,7 +92,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Database.cs" />
+    <Compile Include="Model\Database.cs" />
     <Compile Include="Emails.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,7 +100,6 @@
     </Compile>
     <Compile Include="Model\EmailSendService.cs" />
     <Compile Include="Model\Senders.cs" />
-    <Compile Include="Model\TestEmailSender.cs" />
     <Compile Include="ViewModel\MessageSendResultDlgVM.cs" />
     <Compile Include="ViewModel\WpfMailSenderVM.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />

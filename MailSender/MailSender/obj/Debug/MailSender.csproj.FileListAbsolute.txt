@@ -18,3 +18,4 @@ E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\View\WpfMailSender.
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\Encrypter.dll
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\Encrypter.pdb
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csproj.CopyComplete
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csprojAssemblyReference.cache
