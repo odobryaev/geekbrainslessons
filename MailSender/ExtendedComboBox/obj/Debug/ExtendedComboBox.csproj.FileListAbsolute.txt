@@ -1,0 +1,12 @@
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBoxControl.g.cs
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox_MarkupCompile.cache
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox_MarkupCompile.lref
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\bin\Debug\ExtendedComboBox.dll
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\bin\Debug\ExtendedComboBox.pdb
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBoxControl.baml
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.g.resources
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.Properties.Resources.resources
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.csproj.GenerateResource.cache
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.csproj.CoreCompileInputs.cache
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.dll
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.pdb

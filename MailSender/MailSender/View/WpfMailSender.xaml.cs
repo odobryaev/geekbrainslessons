@@ -1,24 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using MailSender.ViewModel;
 
 namespace MailSender
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class WpfMailSender : Window
     {
         public WpfMailSender()
@@ -26,6 +10,17 @@ namespace MailSender
             InitializeComponent();
             WpfMailSenderVM vm = new WpfMailSenderVM();
             DataContext = vm;
+        }
+        private void TabSwitcherControl_OnBack(object sender, RoutedEventArgs e)
+        {
+            if (MainTabControl.SelectedIndex == 0) return;
+            MainTabControl.SelectedIndex--;
+        }
+
+        private void TabSwitcherControl_OnForward(object sender, RoutedEventArgs e)
+        {
+            if (MainTabControl.SelectedIndex == MainTabControl.Items.Count - 1) return;
+            MainTabControl.SelectedIndex++;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MailSender.ViewModel
                 return Senders.SenderDictionary;
             }
         }
-       public  KeyValuePair<string, string> SelectedSender { get; set; }
+        public  KeyValuePair<string, string> SelectedSender { get; set; }
 
         public Dictionary<string,int> Server
         {

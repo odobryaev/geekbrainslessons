@@ -3,7 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:MailSender"
+        xmlns:TabSwitcher="clr-namespace:TabSwitcher;assembly=TabSwitcher"
+        xmlns:ExtendedComboBox="clr-namespace:ExtendedComboBox;assembly=ExtendedComboBox"
         mc:Ignorable="d"
         Title="MailSender" Height="450" Width="900">
     <Window.Resources>
@@ -15,10 +18,18 @@
                 <MenuItem Header="Exit"/>
             </MenuItem>
         </Menu>
+        <TabSwitcher:TabSwitcherControl Back="TabSwitcherControl_OnBack" Forward="TabSwitcherControl_OnForward" DockPanel.Dock="Top"/>
         <TabControl Name="MainTabControl" DockPanel.Dock="Top">
             <TabItem Header="Рассылка" >
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
+                        <!--<ToolBar>
+                            <ExtendedComboBox:ExtendedComboBoxControl 
+                                ComboBoxName="Отправитель" 
+                                ItemSource="{Binding Sender}"
+                                SelectedValue="{Binding SelectedSender}"
+                                DockPanel.Dock="Top"/>
+                        </ToolBar>-->
                         <ToolBar>
                             <Label Content="Отправитель:" VerticalAlignment="Center"/>
                             <ComboBox Width="200" SelectedIndex="0" ItemsSource="{Binding Sender}" SelectedValue="{Binding SelectedSender}">
@@ -29,19 +40,19 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <Button ToolTip="Добавить отправителя">
-                                <Image Source="mailsender/src/add.png" Height="15" Margin="2"/>
+                                <Image Source="/src/add.png" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Редактировать отправителя">
-                                <Image Source="mailsender/src/edit.png" Height="15" Margin="2"/>
+                                <Image Source="/src/edit.png" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Удалить отправителя">
-                                <Image Source="mailsender/src/remove.png" Height="15" Margin="2"/>
+                                <Image Source="/src/remove.png" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                         <ToolBar Band="1">
                             <Label>Планировщик:</Label>
-                            <Button ToolTip="Удалить отправителя">
-                                <Image Source="mailsender/src/clock.png" Height="15" Margin="2"/>
+                            <Button ToolTip="Планировщик">
+                                <Image Source="/src/clock.png" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                         <ToolBar>
@@ -54,25 +65,25 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <Button ToolTip="Добавить отправителя">
-                                <Image Source="mailsender/src/add.png" Height="15" Margin="2"/>
+                                <Image Source="/src/add.png" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Редактировать отправителя">
-                                <Image Source="mailsender/src/edit.png" Height="15" Margin="2"/>
+                                <Image Source="/src/edit.png" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Удалить отправителя">
-                                <Image Source="mailsender/src/remove.png" Height="15" Margin="2"/>
+                                <Image Source="/src/remove.png" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                         <ToolBar Band="1">
                             <Label>Список адресатов:</Label>
                             <Button ToolTip="Добавить отправителя">
-                                <Image Source="mailsender/src/add.png" Height="15" Margin="2"/>
+                                <Image Source="/src/add.png" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Редактировать отправителя">
-                                <Image Source="mailsender/src/edit.png" Height="15" Margin="2"/>
+                                <Image Source="/src/edit.png" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Удалить отправителя">
-                                <Image Source="mailsender/src/remove.png" Height="15" Margin="2"/>
+                                <Image Source="/src/remove.png" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
@@ -93,9 +104,10 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Margin="3">
                         <Calendar SelectionMode="MultipleRange"/>
+                        <xctk:TimePicker/>
                         <Button Margin="0,3">
                             <StackPanel Orientation="Horizontal">
-                                <Image Height="15" Source="mailsender/src/clock.png" Margin="0,0,4,0"/>
+                                <Image Height="15" Source="/src/clock.png" Margin="0,0,4,0"/>
                                 <TextBlock Text="Запланировать"/>
                             </StackPanel>
                         </Button>
