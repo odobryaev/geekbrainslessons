@@ -12,43 +12,59 @@ namespace MailSender.ViewModel
 {
     public class WpfMailSenderVM
     {
+        public Dictionary<string,string> Sender
+        {
+            get
+            {
+                return Senders.SenderDictionary;
+            }
+        }
+        public  KeyValuePair<string, string> SelectedSender { get; set; }
+
+        public Dictionary<string,int> Server
+        {
+            get
+            {
+                return Senders.ServerDictionary;
+            }
+        }
+        public KeyValuePair<string, int> SelectedServer { get; set; }
+
+        public IQueryable<Emails> EmailList
+        {
+            get
+            {
+                return Database.Emails;
+            }
+        }
+        
         public string Username { get; set; }
+
         public string SendTo { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
 
-        public RelayCommand TestButtonClick
+        public RelayCommand SendNowButtonClick
         {
             get
             {
                 return
                 new RelayCommand(action =>
                 {
-                    var passwordBox = action as PasswordBox;
-                    var password = passwordBox.Password;
-                    TestEmailSender.SendTestEmail(Username, password);
-                }
-                );
-            }
-        }
-
-        public RelayCommand SendButtonClick
-        {
-            get
-            {
-                return
-                new RelayCommand(action =>
-                {
-                    var passwordBox = action as PasswordBox;
-                    var password = passwordBox.Password;
                     EmailSendService email = new EmailSendService()
                     {
-                        SendTo = this.SendTo,
-                        SendFrom = this.Username,
+                        Server = SelectedServer.Key,
+                        Port = SelectedServer.Value,
+                        SendFrom = SelectedSender.Key,
                         MessageSubject = this.Subject,
-                        MessageBody = this.Body
+                        MessageBody = this.Body  
                     };
-                    email.SendExecute(Username,password);
+
+                    foreach (var e in EmailList)
+                    {
+                        email.SendTo = e.Value;
+                        email.SendExecute(SelectedSender.Key, Encrypter.Crypter.Decrypt(SelectedSender.Value));
+                    }
                 }
                 );
             }

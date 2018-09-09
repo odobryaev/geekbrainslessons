@@ -13,8 +13,8 @@ namespace MailSender.Model
 {
     public class EmailSendService
     {
-        private static string _server = "smtp.gmail.com";
-        private static int _port = 587;
+        public string Server { get; set; }
+        public int Port { get; set; }
 
         public string SendTo { get; set; }
         public string SendFrom { get; set; }
@@ -26,7 +26,6 @@ namespace MailSender.Model
 
         public EmailSendService()
         {
-
         }
 
         public void SendExecute(string user, string pass)
@@ -34,7 +33,7 @@ namespace MailSender.Model
             try
             {
                 using (var message = new MailMessage(SendFrom, SendTo, MessageSubject, MessageBody))
-                using (var client = new SmtpClient(_server, _port) { EnableSsl = true, Credentials = new NetworkCredential(user, pass) })
+                using (var client = new SmtpClient(Server, Port) { EnableSsl = true, Credentials = new NetworkCredential(user, pass) })
                 {
                     client.Send(message);
                     var dlg = new MessageSendResultDlg();

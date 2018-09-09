@@ -1,0 +1,12 @@
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\bin\Release\TabSwitcher.dll
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\bin\Release\TabSwitcher.pdb
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcherControl.g.cs
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.cache
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.lref
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcherControl.baml
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher.g.resources
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher.Properties.Resources.resources
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher.csproj.GenerateResource.cache
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher.csproj.CoreCompileInputs.cache
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher.dll
+E:\_gitHub\geekbrainslessons\MailSender\TabSwitcher\obj\Release\TabSwitcher.pdb

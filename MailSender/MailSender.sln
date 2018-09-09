@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender", "MailSender\MailSender.csproj", "{099B0B85-CBED-45CA-870E-1B4591C785EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabSwitcher", "TabSwitcher\TabSwitcher.csproj", "{BAEDC466-FB8A-479A-8BA3-68758724E36B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedComboBox", "ExtendedComboBox\ExtendedComboBox.csproj", "{269DCA19-D177-44B1-B535-96E93513E334}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{099B0B85-CBED-45CA-870E-1B4591C785EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{099B0B85-CBED-45CA-870E-1B4591C785EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{099B0B85-CBED-45CA-870E-1B4591C785EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEDC466-FB8A-479A-8BA3-68758724E36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEDC466-FB8A-479A-8BA3-68758724E36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEDC466-FB8A-479A-8BA3-68758724E36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEDC466-FB8A-479A-8BA3-68758724E36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{269DCA19-D177-44B1-B535-96E93513E334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{269DCA19-D177-44B1-B535-96E93513E334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{269DCA19-D177-44B1-B535-96E93513E334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{269DCA19-D177-44B1-B535-96E93513E334}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
