@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\App.xaml
-367418765
+548298659
 
-13-1429155120
-231413063968
-Theme.xaml;View\MessageSendResultDlg.xaml;View\WpfMailSender.xaml;
+17-1794427259
+81294300092
+Theme.xaml;Views\EmailInfo.xaml;Views\MessageSendResultDlg.xaml;Views\SaveEmailView.xaml;Views\WpfMailSender.xaml;
 
 False
 
