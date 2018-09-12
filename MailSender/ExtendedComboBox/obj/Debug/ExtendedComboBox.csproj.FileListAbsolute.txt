@@ -10,3 +10,4 @@ E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedCombo
 E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.csproj.CoreCompileInputs.cache
 E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.dll
 E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.pdb
+E:\_gitHub\geekbrainslessons\MailSender\ExtendedComboBox\obj\Debug\ExtendedComboBox.csprojAssemblyReference.cache

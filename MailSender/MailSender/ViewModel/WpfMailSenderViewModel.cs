@@ -53,7 +53,7 @@ namespace MailSender.ViewModel
         {
             email.Id = _dataService.CreateEmail(email);
             if (email.Id == 0) return;
-            Emails.Add(email);
+            Emails.Add(email);       
         }
 
         private void GetEmails()

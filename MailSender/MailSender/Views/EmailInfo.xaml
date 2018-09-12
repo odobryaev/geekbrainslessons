@@ -40,4 +40,4 @@ DataContext="{Binding Main, Source={StaticResource Locator}}" Height="Auto" Widt
             VerticalAlignment="Top" Width="310">
         </TextBox>
     </Grid>
-</UserControl>
+</UserControl>

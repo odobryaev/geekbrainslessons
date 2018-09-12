@@ -140,6 +140,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Emails.cs">
+      <DependentUpon>Emails.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Emails.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

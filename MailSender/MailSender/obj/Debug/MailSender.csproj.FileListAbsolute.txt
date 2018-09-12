@@ -53,6 +53,6 @@ E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\WpfMailSender
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\EmailInfo.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\MessageSendResultDlg.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\WpfMailSender.baml
-E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csprojAssemblyReference.cache
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\SaveEmailView.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\SaveEmailView.g.cs
+E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csprojAssemblyReference.cache

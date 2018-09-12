@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabSwitcher", "TabSwitcher\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedComboBox", "ExtendedComboBox\ExtendedComboBox.csproj", "{269DCA19-D177-44B1-B535-96E93513E334}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F27CB6CF-6BF3-4DEF-99A8-A065843AFB77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encrypter.Test", "Encrypter.Test\Encrypter.Test.csproj", "{25AC1835-AEF7-41D5-8E63-CB59139C062C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{269DCA19-D177-44B1-B535-96E93513E334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{269DCA19-D177-44B1-B535-96E93513E334}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{269DCA19-D177-44B1-B535-96E93513E334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25AC1835-AEF7-41D5-8E63-CB59139C062C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25AC1835-AEF7-41D5-8E63-CB59139C062C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25AC1835-AEF7-41D5-8E63-CB59139C062C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25AC1835-AEF7-41D5-8E63-CB59139C062C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{25AC1835-AEF7-41D5-8E63-CB59139C062C} = {F27CB6CF-6BF3-4DEF-99A8-A065843AFB77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87B91399-596F-426D-AC80-DAEDA06E211B}

@@ -16,7 +16,10 @@ namespace MailSender.Services
         public int CreateEmail(Emails email)
         {
             if (_dataContext.Emails.Contains(email))
+            {
+                //_dataContext.Emails
                 return email.Id;
+            }
             _dataContext.Emails.InsertOnSubmit(email);
             _dataContext.SubmitChanges();
             return email.Id;
