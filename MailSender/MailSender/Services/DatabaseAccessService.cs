@@ -17,7 +17,8 @@ namespace MailSender.Services
         {
             if (_dataContext.Emails.Contains(email))
             {
-                //_dataContext.Emails
+                Console.WriteLine("Here!");
+                _dataContext.SubmitChanges();
                 return email.Id;
             }
             _dataContext.Emails.InsertOnSubmit(email);
@@ -33,7 +34,5 @@ namespace MailSender.Services
             _dataContext.SubmitChanges();
             return;
         }
-
-
     }
 }

@@ -22,13 +22,6 @@
             <TabItem Header="Рассылка" >
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
-                        <!--<ToolBar>
-                            <ExtendedComboBox:ExtendedComboBoxControl 
-                                ComboBoxName="Отправитель" 
-                                ItemSource="{Binding Sender}"
-                                SelectedValue="{Binding SelectedSender}"
-                                DockPanel.Dock="Top"/>
-                        </ToolBar>-->
                         <ToolBar>
                             <Label Content="Отправитель:" VerticalAlignment="Center"/>
                             <ComboBox Width="200" SelectedIndex="0" ItemsSource="{Binding Sender}" SelectedValue="{Binding SelectedSender}">
@@ -39,19 +32,13 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <Button ToolTip="Добавить отправителя">
-                                <Image Source="/src/add.png" Height="15" Margin="2"/>
+                                <Image Source="/src/add.png" RenderOptions.BitmapScalingMode="HighQuality"  Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Редактировать отправителя">
-                                <Image Source="/src/edit.png" Height="15" Margin="2"/>
+                                <Image Source="/src/edit.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Удалить отправителя">
-                                <Image Source="/src/remove.png" Height="15" Margin="2"/>
-                            </Button>
-                        </ToolBar>
-                        <ToolBar Band="1">
-                            <Label>Планировщик:</Label>
-                            <Button ToolTip="Планировщик">
-                                <Image Source="/src/clock.png" Height="15" Margin="2"/>
+                                <Image Source="/src/remove.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                         <ToolBar>
@@ -64,38 +51,31 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <Button ToolTip="Добавить отправителя">
-                                <Image Source="/src/add.png" Height="15" Margin="2"/>
+                                <Image Source="/src/add.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Редактировать отправителя">
-                                <Image Source="/src/edit.png" Height="15" Margin="2"/>
+                                <Image Source="/src/edit.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Удалить отправителя">
-                                <Image Source="/src/remove.png" Height="15" Margin="2"/>
+                                <Image Source="/src/remove.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                         <ToolBar Band="1">
                             <Label>Список адресатов:</Label>
-                            <Button ToolTip="Добавить отправителя">
-                                <Image Source="/src/add.png" Height="15" Margin="2"/>
+                            <Button ToolTip="Добавить отправителя" Command="{Binding AddEmailCommand}">
+                                <Image Source="/src/add.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Редактировать отправителя">
-                                <Image Source="/src/edit.png" Height="15" Margin="2"/>
+                                <Image Source="/src/edit.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                             <Button ToolTip="Удалить отправителя" Command="{Binding DeleteMailCommand}" CommandParameter="{Binding CurrentEmail}">
-                                <Image Source="/src/remove.png" Height="15" Margin="2"/>
+                                <Image Source="/src/remove.png" RenderOptions.BitmapScalingMode="HighQuality" Height="15" Margin="2"/>
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <view:SaveEmailView/>
+                    <view:SaveEmailView Visibility="Visible"/>
                     <view:EmailInfo/>
-                    
-                    <!--<DataGrid DockPanel.Dock="Top" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding EmailList}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
-                            <DataGridTextColumn Header="Почта" Binding="{Binding Value}" Width="Auto"/>
-                            <DataGridTextColumn Header="ФИО" Binding="{Binding Name}" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>-->
+                   
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик">
@@ -105,16 +85,42 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Margin="3">
-                        <Calendar SelectionMode="MultipleRange"/>
-                        <xctk:TimePicker/>
-                        <Button Margin="0,3">
+                        <!--<Calendar SelectionMode="MultipleRange"/>
+                        <xctk:TimePicker/>-->
+                        <Button Command="{Binding AddLetterToSchedulerCommand}">
                             <StackPanel Orientation="Horizontal">
-                                <Image Height="15" Source="/src/clock.png" Margin="0,0,4,0"/>
-                                <TextBlock Text="Запланировать"/>
+                                <Image Height="15" Source="/src/add.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="0,0,4,0"/>
+                                <TextBlock Text="Добавить письмо"/>
                             </StackPanel>
                         </Button>
+                        <ListView ItemsSource="{Binding SchedulerItems}" HorizontalAlignment="Left" Width="200">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Command="{Binding Main.EditLetterCommand, Source={StaticResource Locator}}"
+                                                CommandParameter="{Binding}">
+                                            <Image Height="15" Source="/src/edit.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        </Button>
+                                        <TextBox Text="{Binding Path=MessageDateTime}" Margin="3,0,0,0"/>
+                                        <Button Margin="3,0,0,0"
+                                                Command="{Binding Main.DeleteLetterFromSchedulerCommand, Source={StaticResource Locator}}"
+                                                CommandParameter="{Binding}">
+                                            <Image Height="15" Source="/src/remove.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                         <Button Content="Отправить сейчас" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Bottom" Width="200" Height="20" 
                         Command="{Binding SendNowCommand}"/>
+                    </StackPanel>
+                    <StackPanel DataContext="{Binding SelectedSchedulerItem}" Grid.Column="1" Margin="0">
+                        <StackPanel Orientation="Horizontal">
+                                <Label Content="Тема:"/>
+                                <TextBox Height="20" Width="260" Text="{Binding Header}"/>
+                        </StackPanel>
+                        <TextBox Height ="100" Text="{Binding Message}"/>
+
                     </StackPanel>
                 </Grid>
             </TabItem>

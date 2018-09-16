@@ -149,10 +149,11 @@
       <DependentUpon>Emails.dbml</DependentUpon>
     </Compile>
     <Compile Include="Model\EmailSendService.cs" />
+    <Compile Include="Model\SchedulerClass.cs" />
+    <Compile Include="Model\SchedulerItems.cs" />
     <Compile Include="Model\Senders.cs" />
     <Compile Include="Services\DatabaseAccessService.cs" />
     <Compile Include="Services\IDataAccessService.cs" />
-    <Compile Include="Services\XMLFileAccessService.cs" />
     <Compile Include="ViewModel\MessageSendResultDlgViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WpfMailSenderViewModel.cs" />
