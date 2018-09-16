@@ -124,10 +124,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MessageSendResultDlg.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\SaveEmailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,14 +150,10 @@
     <Compile Include="Model\Senders.cs" />
     <Compile Include="Services\DatabaseAccessService.cs" />
     <Compile Include="Services\IDataAccessService.cs" />
-    <Compile Include="ViewModel\MessageSendResultDlgViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WpfMailSenderViewModel.cs" />
     <Compile Include="Views\EmailInfo.xaml.cs">
       <DependentUpon>EmailInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MessageSendResultDlg.xaml.cs">
-      <DependentUpon>MessageSendResultDlg.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SaveEmailView.xaml.cs">
       <DependentUpon>SaveEmailView.xaml</DependentUpon>

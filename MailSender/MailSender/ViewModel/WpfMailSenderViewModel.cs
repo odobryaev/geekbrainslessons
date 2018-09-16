@@ -18,11 +18,6 @@ namespace MailSender.ViewModel
         private ObservableCollection<Emails> _emails = new ObservableCollection<Emails>();
         private SchedulerItems _selectedSchedulerItem = new SchedulerItems();
         private ObservableCollection<SchedulerItems> _schedulerItems = new ObservableCollection<SchedulerItems>();
-        
-
-        //private Dictionary<DateTime, string> _schedulerItems = new Dictionary<DateTime, string>() { { DateTime.Now, "SSS" } };
-        //ObservableCollection<KeyValuePair<DateTime, string>> _schedulerItemsOC = new ObservableCollection<KeyValuePair<DateTime, string>>(SchedulerItems.);
-        //private ObservableCollection<Dictionary<DateTime, string>> _schedulerItems = new ObservableCollection<Dictionary<DateTime, string>>();
 
         public WpfMailSenderViewModel(IDataAccessService dataSerice)
         {
@@ -35,6 +30,7 @@ namespace MailSender.ViewModel
             AddLetterToSchedulerCommand = new RelayCommand(AddLetterToScheduler);
             DeleteLetterFromSchedulerCommand = new RelayCommand<SchedulerItems>(DeleteLetterFromScheduler);
             EditLetterCommand = new RelayCommand<SchedulerItems>(EditLetter);
+            RunSchedulerCommand = new RelayCommand(RunScheduler);
         }
 
         public ObservableCollection<Emails> Emails
@@ -67,10 +63,6 @@ namespace MailSender.ViewModel
             set => Set(ref _schedulerItems, value);
         }
 
-
-        public string Subject { get; set; }
-        public string Body { get; set; }
-
         public RelayCommand ReadAllMailsCommand { get; }
         public RelayCommand AddEmailCommand { get; }
         public RelayCommand<Emails> SaveMailCommand { get; }
@@ -79,6 +71,7 @@ namespace MailSender.ViewModel
         public RelayCommand AddLetterToSchedulerCommand { get; }
         public RelayCommand<SchedulerItems> DeleteLetterFromSchedulerCommand { get; }
         public RelayCommand<SchedulerItems> EditLetterCommand { get; }
+        public RelayCommand RunSchedulerCommand { get; }
 
         private void AddEmail()
         {     
@@ -90,8 +83,7 @@ namespace MailSender.ViewModel
             
             email.Id = _dataService.CreateEmail(email);
             if (email.Id == 0) return;
-            GetEmails();
-            //Emails.Add(email);       
+            GetEmails();      
         }
 
         private void GetEmails()
@@ -112,15 +104,29 @@ namespace MailSender.ViewModel
                 Server = SelectedServer.Key,
                 Port = SelectedServer.Value,
                 SendFrom = SelectedSender.Key,
-                MessageSubject = this.Subject,
-                MessageBody = this.Body
             };
-
-            foreach (var e in _emails)
+            
+            foreach (var letter in _schedulerItems)
             {
-                email.SendTo = e.Value;
-                email.SendExecute(SelectedSender.Key, Encrypter.Crypter.Decrypt(SelectedSender.Value));
+                email.MessageSubject = letter.Header;
+                email.MessageBody = letter.Message;
+                foreach (var e in _emails)
+                {
+                    email.SendTo = e.Value;
+                    email.SendExecute(SelectedSender.Key, Encrypter.Crypter.Decrypt(SelectedSender.Value));
+                }
             }
+        }
+
+        public void RunScheduler()
+        {
+            SchedulerClass scheduler = new SchedulerClass();
+            scheduler.SendEmails(SchedulerItems.AsQueryable(), new EmailSendService()
+                                                                {
+                                                                    Server = SelectedServer.Key,
+                                                                    Port = SelectedServer.Value,
+                                                                    SendFrom = SelectedSender.Key,
+                                                                }, Emails.AsQueryable(), SelectedSender.Key, SelectedSender.Value);
         }
 
         public void AddLetterToScheduler()
@@ -136,12 +142,6 @@ namespace MailSender.ViewModel
         public void EditLetter(SchedulerItems _current)
         {
             SelectedSchedulerItem = _current;
-            Console.WriteLine(SelectedSchedulerItem.MessageDateTime);
-            //foreach (var e in SchedulerItems)
-            //{
-            //    Console.WriteLine(e.MessageDateTime + e.Header + e.Message);
-            //}
-            //Console.WriteLine("Here!");
         }
 
         public Dictionary<string, string> Sender

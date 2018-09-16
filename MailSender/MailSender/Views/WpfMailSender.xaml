@@ -75,7 +75,7 @@
                     </ToolBarTray>
                     <view:SaveEmailView Visibility="Visible"/>
                     <view:EmailInfo/>
-                   
+
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик">
@@ -85,8 +85,6 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Margin="3">
-                        <!--<Calendar SelectionMode="MultipleRange"/>
-                        <xctk:TimePicker/>-->
                         <Button Command="{Binding AddLetterToSchedulerCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <Image Height="15" Source="/src/add.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="0,0,4,0"/>
@@ -111,28 +109,24 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                        <Button HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Bottom" Width="200" Height="20" 
+                            Command="{Binding RunSchedulerCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="15" Source="/src/clock.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="0,0,4,0"/>
+                                <TextBlock Text="Отправить запланированно"/>
+                            </StackPanel>
+                        </Button>
                         <Button Content="Отправить сейчас" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Bottom" Width="200" Height="20" 
-                        Command="{Binding SendNowCommand}"/>
+                            Command="{Binding SendNowCommand}"/>
                     </StackPanel>
                     <StackPanel DataContext="{Binding SelectedSchedulerItem}" Grid.Column="1" Margin="0">
                         <StackPanel Orientation="Horizontal">
-                                <Label Content="Тема:"/>
-                                <TextBox Height="20" Width="260" Text="{Binding Header}"/>
+                            <Label Content="Тема:"/>
+                            <TextBox Height="20" Width="260" Text="{Binding Header}"/>
                         </StackPanel>
                         <TextBox Height ="100" Text="{Binding Message}"/>
 
                     </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Редактор сообщений">
-                <Grid>
-                    <DockPanel>
-                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                            <Label Content="Тема:"/>
-                            <TextBox Width ="250" Text="{Binding Subject}"/>
-                        </StackPanel>
-                        <TextBox Text="{Binding Body}"/>
-                    </DockPanel>
                 </Grid>
             </TabItem>
         </TabControl>

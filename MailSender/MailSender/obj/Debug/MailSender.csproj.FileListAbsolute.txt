@@ -48,11 +48,8 @@ E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\GalaSoft.MvvmLight.
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\App.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\EmailInfo.g.cs
-E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\MessageSendResultDlg.g.cs
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\WpfMailSender.g.cs
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\EmailInfo.baml
-E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\MessageSendResultDlg.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\WpfMailSender.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\SaveEmailView.baml
 E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\Views\SaveEmailView.g.cs
-E:\_gitHub\geekbrainslessons\MailSender\MailSender\obj\Debug\MailSender.csprojAssemblyReference.cache

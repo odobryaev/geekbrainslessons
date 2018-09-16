@@ -1,60 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 using System.Windows;
 
 namespace MailSender.Model
 {
-    class SchedulerClass
+    public class SchedulerClass
     {
-        DispatcherTimer timer = new DispatcherTimer(); // таймер
-        EmailSendService emailSender; // экземпляр класса, отвечающего за отправку писем
-        DateTime dtSend; // дата и время отправки
-        IQueryable<Emails> emails; // коллекция email'ов адресатов
-        Dictionary<DateTime, string> schedulerItem;
+        DispatcherTimer timer = new DispatcherTimer(); 
+        EmailSendService emailSender; 
+        IQueryable<Emails> emails;
+        IQueryable<SchedulerItems> letters;
+        DateTime lastLetterTime;
+        string _user;
+        string _pass;
 
-        /// <summary>
-        /// Методе который превращаем строку из текстбокса tbTimePicker в TimeSpan
-        /// </summary>
-        /// <param name="strSendTime"></param>
-        /// <returns></returns>
-        public TimeSpan GetSendTime(string strSendTime)
+        public void SendEmails(IQueryable<SchedulerItems> letters, EmailSendService emailSender, IQueryable<Emails> emails, string user, string pass )
         {
-            TimeSpan tsSendTime = new TimeSpan();
-            try
-            {
-                tsSendTime = TimeSpan.Parse(strSendTime);
-            }
-            catch { }
-            return tsSendTime;
-        }
-        /// <summary>
-        //// Непосредственно отправка писем
-        /// </summary>
-        /// <param name="dtSend"></param>
-        /// <param name="emailSender"></param>
-        /// <param name="emails"></param>
-        public void SendEmails(DateTime dtSend, EmailSendService emailSender, IQueryable<Emails> emails)
-        {
-            this.emailSender = emailSender; // Экземпляр класса, отвечающего за отправку писем присваиваем
-            this.dtSend = dtSend;
+            this.emailSender = emailSender;
             this.emails = emails;
+            this.letters = letters;
+            _user = user;
+            _pass = pass;
+            lastLetterTime = letters.Max(x => x.MessageDateTime);
             timer.Tick += Timer_Tick;
-            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Interval = new TimeSpan(0, 1, 0);
             timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
+            foreach (var letter in letters)
             {
-                //emailSender.SendExecute(emails);
-                timer.Stop();
-                MessageBox.Show("Письма отправлены.");
+                DateTime mdt = letter.MessageDateTime;
+                DateTime dtn = DateTime.Now;
+                DateTime ldt = lastLetterTime;
+                if (mdt.AddSeconds(-mdt.Second).AddMilliseconds(-mdt.Millisecond).ToString() == dtn.AddSeconds(-dtn.Second).AddMilliseconds(-dtn.Millisecond).ToString())
+                {
+                    emailSender.MessageSubject = letter.Message;
+                    emailSender.MessageBody = letter.Message;
+                    foreach (var email in emails)
+                    {
+                        emailSender.SendTo = email.Value;
+                        emailSender.SendExecute(_user, Encrypter.Crypter.Decrypt(_pass));
+                    }
+                    if (mdt.AddSeconds(-mdt.Second).AddMilliseconds(-mdt.Millisecond).ToString() == ldt.AddSeconds(-ldt.Second).AddMilliseconds(-ldt.Millisecond).ToString())
+                    {
+                        timer.Stop();
+                        MessageBox.Show("Все письма отправлены.");
+                    }
+                    else Console.WriteLine("Not last!");
+                }
             }
         }
-    }
+    }
 }
