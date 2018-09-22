@@ -124,10 +124,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MessageSendResultDlg.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\SaveEmailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,24 +136,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Emails.cs">
+      <DependentUpon>Emails.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Emails.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Emails.dbml</DependentUpon>
     </Compile>
     <Compile Include="Model\EmailSendService.cs" />
+    <Compile Include="Model\SchedulerClass.cs" />
+    <Compile Include="Model\SchedulerItems.cs" />
     <Compile Include="Model\Senders.cs" />
     <Compile Include="Services\DatabaseAccessService.cs" />
     <Compile Include="Services\IDataAccessService.cs" />
-    <Compile Include="Services\XMLFileAccessService.cs" />
-    <Compile Include="ViewModel\MessageSendResultDlgViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WpfMailSenderViewModel.cs" />
     <Compile Include="Views\EmailInfo.xaml.cs">
       <DependentUpon>EmailInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MessageSendResultDlg.xaml.cs">
-      <DependentUpon>MessageSendResultDlg.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SaveEmailView.xaml.cs">
       <DependentUpon>SaveEmailView.xaml</DependentUpon>

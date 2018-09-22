@@ -14,7 +14,6 @@ namespace MailSender.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<WpfMailSenderViewModel>();
-            SimpleIoc.Default.Register<MessageSendResultDlgViewModel>();
 
             SimpleIoc.Default.Register<IDataAccessService, DatabaseAccessService>();
            
@@ -27,13 +26,5 @@ namespace MailSender.ViewModel
                 return ServiceLocator.Current.GetInstance<WpfMailSenderViewModel>();
             }
         }
-        public MessageSendResultDlgViewModel Dialog
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MessageSendResultDlgViewModel>();
-            }
-        }
-
     }
 }
